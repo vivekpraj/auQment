@@ -1092,6 +1092,28 @@ footer {
   from { opacity: 0 }
   to   { opacity: 1 }
 }
+
+/* ── Rotating reticle ── */
+.reticle {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(900px, 95vw);
+  height: min(900px, 95vw);
+  pointer-events: none;
+  z-index: 0;
+  opacity: 1;
+}
+.reticle-spin {
+  animation: reticle-rotate 60s linear infinite;
+  transform-origin: 400px 400px;
+}
+@keyframes reticle-rotate {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+#hero   { overflow: hidden; }
+#cta    { overflow: hidden; }
 </style>
 </head>
 <body>
@@ -1115,6 +1137,34 @@ footer {
 </nav>
       <!-- â•â•â• HERO â•â•â• -->
       <section id="hero">
+        <!-- Rotating reticle background -->
+        <svg class="reticle" viewBox="0 0 800 800" fill="none" aria-hidden="true">
+          <g class="reticle-spin">
+            <circle cx="400" cy="400" r="90"  stroke="rgba(195,165,226,0.07)" stroke-width="1"/>
+            <circle cx="400" cy="400" r="170" stroke="rgba(195,165,226,0.055)" stroke-width="1"/>
+            <circle cx="400" cy="400" r="250" stroke="rgba(195,165,226,0.045)" stroke-width="1"/>
+            <circle cx="400" cy="400" r="340" stroke="rgba(195,165,226,0.035)" stroke-width="1"/>
+            <line x1="400" y1="0"   x2="400" y2="800" stroke="rgba(195,165,226,0.05)" stroke-width="0.7"/>
+            <line x1="0"   y1="400" x2="800" y2="400" stroke="rgba(195,165,226,0.05)" stroke-width="0.7"/>
+            <line x1="0"   y1="0"   x2="800" y2="800" stroke="rgba(195,165,226,0.025)" stroke-width="0.5"/>
+            <line x1="800" y1="0"   x2="0"   y2="800" stroke="rgba(195,165,226,0.025)" stroke-width="0.5"/>
+            <!-- Cardinal ticks -->
+            <line x1="400" y1="58"  x2="400" y2="74"  stroke="rgba(195,165,226,0.25)" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="400" y1="726" x2="400" y2="742" stroke="rgba(195,165,226,0.25)" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="58"  y1="400" x2="74"  y2="400" stroke="rgba(195,165,226,0.25)" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="726" y1="400" x2="742" y2="400" stroke="rgba(195,165,226,0.25)" stroke-width="1.5" stroke-linecap="round"/>
+          </g>
+          <!-- Static corner brackets -->
+          <path d="M100 100 L100 148 M100 100 L148 100" stroke="rgba(195,165,226,0.18)" stroke-width="1.2" stroke-linecap="round"/>
+          <path d="M700 100 L700 148 M700 100 L652 100" stroke="rgba(195,165,226,0.18)" stroke-width="1.2" stroke-linecap="round"/>
+          <path d="M100 700 L100 652 M100 700 L148 700" stroke="rgba(195,165,226,0.18)" stroke-width="1.2" stroke-linecap="round"/>
+          <path d="M700 700 L700 652 M700 700 L652 700" stroke="rgba(195,165,226,0.18)" stroke-width="1.2" stroke-linecap="round"/>
+          <!-- Label -->
+          <text x="710" y="94" font-family="'DM Mono',monospace" font-size="9" fill="rgba(195,165,226,0.35)" letter-spacing="1.5">SOL · FOCUS</text>
+          <!-- Center dot -->
+          <circle cx="400" cy="400" r="3.5" fill="rgba(195,165,226,0.35)"/>
+          <circle cx="400" cy="400" r="1.2" fill="rgba(195,165,226,0.8)"/>
+        </svg>
         <div class="aurora" aria-hidden="true">
           <div class="a-blob a-blob-1"></div>
           <div class="a-blob a-blob-2"></div>
@@ -1631,6 +1681,30 @@ footer {
       <!-- â•â•â• CTA â•â•â• -->
       <!-- ═══ CTA ═══ -->
       <section id="cta" class="alt">
+        <!-- Rotating reticle background -->
+        <svg class="reticle" viewBox="0 0 800 800" fill="none" aria-hidden="true">
+          <g class="reticle-spin">
+            <circle cx="400" cy="400" r="90"  stroke="rgba(195,165,226,0.07)" stroke-width="1"/>
+            <circle cx="400" cy="400" r="170" stroke="rgba(195,165,226,0.055)" stroke-width="1"/>
+            <circle cx="400" cy="400" r="250" stroke="rgba(195,165,226,0.045)" stroke-width="1"/>
+            <circle cx="400" cy="400" r="340" stroke="rgba(195,165,226,0.035)" stroke-width="1"/>
+            <line x1="400" y1="0"   x2="400" y2="800" stroke="rgba(195,165,226,0.05)" stroke-width="0.7"/>
+            <line x1="0"   y1="400" x2="800" y2="400" stroke="rgba(195,165,226,0.05)" stroke-width="0.7"/>
+            <line x1="0"   y1="0"   x2="800" y2="800" stroke="rgba(195,165,226,0.025)" stroke-width="0.5"/>
+            <line x1="800" y1="0"   x2="0"   y2="800" stroke="rgba(195,165,226,0.025)" stroke-width="0.5"/>
+            <line x1="400" y1="58"  x2="400" y2="74"  stroke="rgba(195,165,226,0.25)" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="400" y1="726" x2="400" y2="742" stroke="rgba(195,165,226,0.25)" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="58"  y1="400" x2="74"  y2="400" stroke="rgba(195,165,226,0.25)" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="726" y1="400" x2="742" y2="400" stroke="rgba(195,165,226,0.25)" stroke-width="1.5" stroke-linecap="round"/>
+          </g>
+          <path d="M100 100 L100 148 M100 100 L148 100" stroke="rgba(195,165,226,0.18)" stroke-width="1.2" stroke-linecap="round"/>
+          <path d="M700 100 L700 148 M700 100 L652 100" stroke="rgba(195,165,226,0.18)" stroke-width="1.2" stroke-linecap="round"/>
+          <path d="M100 700 L100 652 M100 700 L148 700" stroke="rgba(195,165,226,0.18)" stroke-width="1.2" stroke-linecap="round"/>
+          <path d="M700 700 L700 652 M700 700 L652 700" stroke="rgba(195,165,226,0.18)" stroke-width="1.2" stroke-linecap="round"/>
+          <text x="710" y="94" font-family="'DM Mono',monospace" font-size="9" fill="rgba(195,165,226,0.35)" letter-spacing="1.5">SOL · FOCUS</text>
+          <circle cx="400" cy="400" r="3.5" fill="rgba(195,165,226,0.35)"/>
+          <circle cx="400" cy="400" r="1.2" fill="rgba(195,165,226,0.8)"/>
+        </svg>
         <div class="cta-glow" aria-hidden="true"></div>
         <svg class="cta-lens-bg" viewBox="0 0 500 500" fill="none" aria-hidden="true">
           <circle cx="250" cy="250" r="220" stroke="#C3A5E2" stroke-width="0.5" opacity="0.6"/>
